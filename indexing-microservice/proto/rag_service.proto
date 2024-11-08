@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package rag;
+
+service RAGService {
+  rpc ProcessDocument (DocumentRequest) returns (DocumentResponse) {}
+   rpc DeleteDocument(DeleteRequest) returns (DocumentResponse);
+}
+
+message DocumentRequest {
+  string file_id = 1;
+  string user_id = 2;
+  string file_url = 3;
+}
+
+message DocumentResponse {
+  string status = 1;
+  string message = 2;
+}
+
+message DeleteRequest {
+    string file_id = 1;
+}
